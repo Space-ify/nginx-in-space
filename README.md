@@ -73,3 +73,5 @@ http {
 * NGINX can distribute incoming traffic across multiple instances of backend services, which helps in scaling the application and balancing the load.
 ### Easy CORS Managment:
 * The add_header Access-Control-Allow-Origin *; directive allows your frontend to make requests to the backend API from a different domain, facilitating cross-origin requests.
+### Caching
+* apparently...
