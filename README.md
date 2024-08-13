@@ -67,7 +67,10 @@ http {
 ### Single Entry Point:
 * The reverse proxy (NGINX) provides a single entry point for users, simplifying access to the application. Users only need to interact with one domain and port (port 80) rather than multiple services on different ports.
 ### Internal Request Routing:
-* NGINX handles routing requests to the appropriate backend service.
-* For instance, it forwards requests to / to the React frontend and requests to /api/ to the FastAPI backend. This keeps the backend services isolated and not directly exposed to the internet.
+* NGINX can route different types of requests to different backend services.
+* For example, it can direct / requests to the React frontend and /api/ requests to the FastAPI backend. This keeps the service architecture clean and avoids exposing multiple ports.
+* Directly exposing multiple services on different ports can be less secure and harder to manage. For example, exposing the React frontend on one port and the FastAPI backend on another may lead to additional security risks and complicate client-side configuration.
+### Load Balancing:
+* NGINX can distribute incoming traffic across multiple instances of backend services, which helps in scaling the application and balancing the load.
 ### Easy CORS Managment:
 * The add_header Access-Control-Allow-Origin *; directive allows your frontend to make requests to the backend API from a different domain, facilitating cross-origin requests.
