@@ -28,9 +28,8 @@ This publishes port 80 for the docker container. Normally this is done with the 
 ```python
 docker run -ti my-docker-hub-account/my-image -p 8085:8085
 ```
-**Port Mapping:** The NGINX container listens on port 80 inside the container, and this port is mapped to port 80 on the EC2 instance. 
-This means that when users access port 80 on the EC2 instance, the traffic is directed to port 80 inside the NGINX container.
-The user is directed by NGINX to the correct resource based on the route passed in on the HTTP request ("/" vs "/api"). 
+**Port Mapping:** 
+So we now receive traffic on port 80 on our NGINX docker container, but we need our NGINX SERVER to listen on port 80 as well, so we mark that in our configuration file:
 
 NGINGX Config
 ```python
